@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizTone Converter - 업무 말투 변환기</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BizTone Converter</h1>
+            <p class="subtitle">나의 생각을 전문적인 비즈니스 언어로 변환하세요.</p>
+        </header>
+
+        <main>
+            <section class="converter-card">
+                <div class="input-header">
+                    <div class="recipient-selector">
+                        <label for="recipient">수신자 선택:</label>
+                        <select id="recipient" name="recipient">
+                            <option value="upward">상사 (Upward)</option>
+                            <option value="lateral">타팀 동료 (Lateral)</option>
+                            <option value="external">고객 (External)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="converter-layout">
+                    <!-- Left: Input -->
+                    <div class="panel source-panel">
+                        <div class="panel-header">
+                            <label for="sourceText">원본 텍스트</label>
+                            <span class="char-counter"><span id="currentCharCount">0</span>/500</span>
+                        </div>
+                        <textarea id="sourceText" placeholder="예: 이거 좀 늦어질 것 같아요. (최대 500자)" maxlength="500"></textarea>
+                    </div>
+                    
+                    <div class="divider">
+                        <div class="arrow-icon">&#10140;</div>
+                    </div>
+
+                    <!-- Right: Output -->
+                    <div class="panel result-panel">
+                        <div class="panel-header">
+                            <label for="resultText">변환 결과</label>
+                        </div>
+                        <div id="resultText" class="result-box" aria-live="polite">
+                            <span class="placeholder-text">변환 버튼을 누르면 전문적인 업무 말투로 바뀝니다.</span>
+                        </div>
+                        <div class="result-actions">
+                            <button id="copyBtn" class="copy-btn" disabled>
+                                📋 복사하기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-action">
+                    <button id="convertBtn" class="convert-btn">말투 변환하기</button>
+                </div>
+            </section>
+
+            <!-- Feedback Section (Want Requirement) -->
+            <section id="feedbackSection" class="feedback-area hidden">
+                <p>변환 결과가 도움이 되었나요?</p>
+                <div class="feedback-buttons">
+                    <button class="feedback-btn" data-type="positive">👍 도움됨</button>
+                    <button class="feedback-btn" data-type="negative">👎 도움 안 됨</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 BizTone Converter. 전문적인 비즈니스 커뮤니케이션의 시작.</p>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="hidden">
+        <div class="spinner"></div>
+        <p>AI가 비즈니스 어투로 다듬는 중입니다...</p>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
